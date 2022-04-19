@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "31.0.0"
+    compileSdkVersion 32
+    buildToolsVersion "32.0.0"
 
     defaultConfig {
         applicationId "com.example.test"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -36,12 +36,12 @@ android {
 
                 if ('true' == IS_JENKINS) {
                     println("jenkins build ==> $BUILD_TIME")
-                    newName = "$APK_NAME-v$VERSION_NAME-$BUILD_TIME-${variant.buildType.name}-unsigned.apk"
+                    newName = "${APK_NAME}-v$VERSION_NAME-$BUILD_TIME-${variant.buildType.name}-unsigned.apk"
                 } else {
                     if ('debug' == variant.buildType.name) {
-                        newName = "$APK_NAME-v${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}-debug.apk"
+                        newName = "${APK_NAME}-v${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}-debug.apk"
                     } else {
-                        newName  = "$APK_NAME-v${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}-${variant.buildType.name}.apk"
+                        newName  = "${APK_NAME}-v${android.defaultConfig.versionName}-${android.defaultConfig.versionCode}-${variant.buildType.name}.apk"
                     }
                 }
 
